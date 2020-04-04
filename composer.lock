@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60ce056a3ba44dfa4e039261a2326ae9",
+    "content-hash": "9b41b2a09dcfd4ae5f0a878f8c362488",
     "packages": [
         {
             "name": "bdunogier/guzzle-site-authenticator",
@@ -3684,16 +3684,16 @@
         },
         {
             "name": "j0k3r/graby",
-            "version": "2.1.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/j0k3r/graby.git",
-                "reference": "6b3e53b2dd3c85b8128dde3307b838885515764b"
+                "reference": "619cb951e86385efd3cbbe827c7ca0e394e21d31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/j0k3r/graby/zipball/6b3e53b2dd3c85b8128dde3307b838885515764b",
-                "reference": "6b3e53b2dd3c85b8128dde3307b838885515764b",
+                "url": "https://api.github.com/repos/j0k3r/graby/zipball/619cb951e86385efd3cbbe827c7ca0e394e21d31",
+                "reference": "619cb951e86385efd3cbbe827c7ca0e394e21d31",
                 "shasum": ""
             },
             "require": {
@@ -3714,8 +3714,7 @@
                 "simplepie/simplepie": "^1.3.1",
                 "smalot/pdfparser": "~0.11",
                 "symfony/options-resolver": "~2.6|~3.0|~4.0",
-                "true/punycode": "~2.1",
-                "wallabag/tcpdf": "^6.2.26"
+                "true/punycode": "~2.1"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "~2.14",
@@ -3754,7 +3753,7 @@
                 }
             ],
             "description": "Graby helps you extract article content from web pages",
-            "time": "2020-01-23T08:59:01+00:00"
+            "time": "2020-03-30T03:58:04+00:00"
         },
         {
             "name": "j0k3r/graby-site-config",
@@ -9165,6 +9164,68 @@
             "time": "2020-03-30T06:25:29+00:00"
         },
         {
+            "name": "tecnickcom/tcpdf",
+            "version": "6.3.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tecnickcom/TCPDF.git",
+                "reference": "19a535eaa7fb1c1cac499109deeb1a7a201b4549"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/19a535eaa7fb1c1cac499109deeb1a7a201b4549",
+                "reference": "19a535eaa7fb1c1cac499109deeb1a7a201b4549",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "config",
+                    "include",
+                    "tcpdf.php",
+                    "tcpdf_parser.php",
+                    "tcpdf_import.php",
+                    "tcpdf_barcodes_1d.php",
+                    "tcpdf_barcodes_2d.php",
+                    "include/tcpdf_colors.php",
+                    "include/tcpdf_filters.php",
+                    "include/tcpdf_font_data.php",
+                    "include/tcpdf_fonts.php",
+                    "include/tcpdf_images.php",
+                    "include/tcpdf_static.php",
+                    "include/barcodes/datamatrix.php",
+                    "include/barcodes/pdf417.php",
+                    "include/barcodes/qrcode.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Nicola Asuni",
+                    "email": "info@tecnick.com",
+                    "role": "lead"
+                }
+            ],
+            "description": "TCPDF is a PHP class for generating PDF documents and barcodes.",
+            "homepage": "http://www.tcpdf.org/",
+            "keywords": [
+                "PDFD32000-2008",
+                "TCPDF",
+                "barcodes",
+                "datamatrix",
+                "pdf",
+                "pdf417",
+                "qrcode"
+            ],
+            "time": "2020-02-14T14:20:12+00:00"
+        },
+        {
             "name": "true/punycode",
             "version": "v2.1.1",
             "source": {
@@ -9439,78 +9500,6 @@
                 "epub"
             ],
             "time": "2020-03-22T16:24:31+00:00"
-        },
-        {
-            "name": "wallabag/tcpdf",
-            "version": "6.2.26",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/wallabag/TCPDF.git",
-                "reference": "bf590f0604bcef1ae6fa3145649cf997f3564477"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/wallabag/TCPDF/zipball/bf590f0604bcef1ae6fa3145649cf997f3564477",
-                "reference": "bf590f0604bcef1ae6fa3145649cf997f3564477",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "replace": {
-                "tecnickcom/tcpdf": "6.2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "fonts",
-                    "config",
-                    "include",
-                    "tcpdf.php",
-                    "tcpdf_parser.php",
-                    "tcpdf_import.php",
-                    "tcpdf_barcodes_1d.php",
-                    "tcpdf_barcodes_2d.php",
-                    "include/tcpdf_colors.php",
-                    "include/tcpdf_filters.php",
-                    "include/tcpdf_font_data.php",
-                    "include/tcpdf_fonts.php",
-                    "include/tcpdf_images.php",
-                    "include/tcpdf_static.php",
-                    "include/barcodes/datamatrix.php",
-                    "include/barcodes/pdf417.php",
-                    "include/barcodes/qrcode.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Nicola Asuni",
-                    "email": "info@tecnick.com",
-                    "homepage": "http://nicolaasuni.tecnick.com",
-                    "role": "Main developer"
-                },
-                {
-                    "name": "wallabag/core",
-                    "homepage": "https://www.wallabag.org",
-                    "role": "Developers"
-                }
-            ],
-            "description": "Keeping a working 6.2.x TCPDF version.",
-            "homepage": "https://www.wallabag.org/",
-            "keywords": [
-                "PDFD32000-2008",
-                "TCPDF",
-                "barcodes",
-                "datamatrix",
-                "pdf",
-                "pdf417",
-                "qrcode"
-            ],
-            "time": "2018-10-25T06:56:14+00:00"
         },
         {
             "name": "white-october/pagerfanta-bundle",
@@ -11524,6 +11513,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "j0k3r/graby": 20,
         "predis/predis": 20
     },
     "prefer-stable": true,
