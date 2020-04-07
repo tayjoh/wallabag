@@ -33,6 +33,11 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
     private $currentUser;
 
     /**
+     * @var TokenStorage
+     */
+    private $token;
+
+    /**
      * GrabySiteConfigBuilder constructor.
      */
     public function __construct(ConfigBuilder $grabyConfigBuilder, TokenStorage $token, SiteCredentialRepository $credentialRepository, LoggerInterface $logger)
@@ -40,10 +45,7 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
         $this->grabyConfigBuilder = $grabyConfigBuilder;
         $this->credentialRepository = $credentialRepository;
         $this->logger = $logger;
-
-        if ($token->getToken()) {
-            $this->currentUser = $token->getToken()->getUser();
-        }
+        $this->token = $token;
     }
 
     /**
@@ -51,6 +53,8 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
      */
     public function buildForHost($host)
     {
+        $this->initUser();
+
         // required by credentials below
         $host = strtolower($host);
         if ('www.' === substr($host, 0, 4)) {
@@ -130,5 +134,12 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
         }
 
         return $extraFields;
+    }
+
+    private function initUser()
+    {
+        if ($this->token->getToken()) {
+            $this->currentUser = $this->token->getToken()->getUser();
+        }
     }
 }
