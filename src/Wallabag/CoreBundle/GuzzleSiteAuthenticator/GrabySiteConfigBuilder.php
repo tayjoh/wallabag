@@ -28,11 +28,6 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
     private $logger;
 
     /**
-     * @var User|null
-     */
-    private $currentUser;
-
-    /**
      * @var TokenStorage
      */
     private $token;
@@ -53,7 +48,7 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
      */
     public function buildForHost($host)
     {
-        $this->initUser();
+        $user = $this->getUser();
 
         // required by credentials below
         $host = strtolower($host);
@@ -61,7 +56,7 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
             $host = substr($host, 4);
         }
 
-        if (!$this->currentUser) {
+        if (!$user) {
             $this->logger->debug('Auth: no current user defined.');
 
             return false;
@@ -77,7 +72,7 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
             $hosts[] = '.' . implode('.', $split);
         }
 
-        $credentials = $this->credentialRepository->findOneByHostsAndUser($hosts, $this->currentUser->getId());
+        $credentials = $this->credentialRepository->findOneByHostsAndUser($hosts, $user->getId());
 
         if (null === $credentials) {
             $this->logger->debug('Auth: no credentials available for host.', ['host' => $host]);
@@ -136,10 +131,12 @@ class GrabySiteConfigBuilder implements SiteConfigBuilder
         return $extraFields;
     }
 
-    private function initUser()
+    private function getUser()
     {
-        if ($this->token->getToken()) {
-            $this->currentUser = $this->token->getToken()->getUser();
+        if ($this->token->getToken() && null !== $this->token->getToken()->getUser()) {
+            return $this->token->getToken()->getUser();
         }
+
+        return null;
     }
 }
